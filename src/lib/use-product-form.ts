@@ -4,7 +4,6 @@ export interface ProductFormData {
     title: string
     description: string
     categoryId: string
-    images: string
     price: number
     stock: number
     status: string
@@ -14,7 +13,6 @@ export const defaultProductForm: ProductFormData = {
     title: "",
     description: "",
     categoryId: "",
-    images: "",
     price: 0,
     stock: 0,
     status: "ACTIVE",

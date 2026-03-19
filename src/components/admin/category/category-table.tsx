@@ -18,6 +18,7 @@ interface Category {
     name: string
     status: string
     createdAt: string
+    productCount: number
 }
 
 const CategoryTable = () => {
@@ -137,7 +138,7 @@ const CategoryTable = () => {
                                             </TableCell>
                                             <TableCell className="text-sm text-muted-foreground">
                                                 <span className="inline-flex items-center rounded-full bg-primary/10 mx-2.5 px-2.5 py-0.5 text-xs font-medium text-primary">
-                                                    <p>0</p>
+                                                    <p>{category.productCount}</p>
                                                 </span>
                                             </TableCell>
                                             <TableCell className="text-sm text-muted-foreground">

@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import ProductImageUpload, { ImageFile } from "./product-image-upload"
+import ProductImageUpload, { ExistingImage, ImageFile } from "./product-image-upload"
 
 interface Category {
     id: number
@@ -23,9 +23,12 @@ interface ProductInfoCardProps {
     status: string
     onChange: (field: string, value: string) => void
     onImagesChange: (imges: ImageFile[]) => void
+    initialImages?: ExistingImage[]
+    onDeleteImage?: (id: number) => void
+    onExistingMainChange?: (id: number) => void
 }
 
-const ProductInfoCard = ({title, description,categories,  categoryId, price, stock, status, onChange, onImagesChange}: ProductInfoCardProps) => {
+const ProductInfoCard = ({title, description,categories,  categoryId, price, stock, status, onChange, onImagesChange, initialImages, onDeleteImage, onExistingMainChange}: ProductInfoCardProps) => {
 
   return (
         <CardContent className="flex flex-col gap-3 pt-6">
@@ -58,7 +61,7 @@ const ProductInfoCard = ({title, description,categories,  categoryId, price, sto
                     </Select>
             </div>
             <div className="flex flex-col gap-3">
-                <ProductImageUpload onChange={onImagesChange} />
+                <ProductImageUpload onChange={onImagesChange} initialImages={initialImages} onDeleteExisting={onDeleteImage} onExistingMainChange={onExistingMainChange} />
             </div>
             <div className="flex flex-col gap-3">
                 <Label>Status</Label>

@@ -48,7 +48,7 @@ const CustomerHeaderForm = ({ name, email, status, isSaving, onSave, backHref = 
                     </div>
                 </div>
                 <div className="flex items-center">
-                    <Button size="default" className="transition-colors hover:bg-green-800" onClick={onSave} disabled={isSaving}>
+                    <Button size="default" className="transition-colors hover:bg-green-800 cursor-pointer" onClick={onSave} disabled={isSaving}>
                         {isSaving ? 
                             <Loader2 className="h-4 w-4 animate-spin"  /> : <Save className="h-4 w-4" />
                         }
