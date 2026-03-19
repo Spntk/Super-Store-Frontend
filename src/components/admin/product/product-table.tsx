@@ -52,7 +52,7 @@ const ProductTable = () => {
     const filterProducts = products.filter(product => {
 
         const matchesSearch =
-            product.title.toLowerCase().includes(search.toLowerCase())
+            product.title.toLowerCase().includes(search.toLowerCase()) || product.categoryName.toLowerCase().includes(search.toLowerCase())
         const matchesStatus = statusTab === 'all' || product.status === statusTab.toLocaleUpperCase()
 
         return matchesSearch && matchesStatus;
@@ -91,7 +91,7 @@ const ProductTable = () => {
                 </Tabs>
                 <div className="relative">
                     <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                    <Input placeholder="Search products..." className="w-full pl-9 sm:w-64" />
+                    <Input placeholder="Search products..." value={search} onChange={(e) => setSearch(e.target.value)} className="w-full pl-9 sm:w-64" />
                 </div>
             </div>
         </CardHeader>
@@ -150,7 +150,7 @@ const ProductTable = () => {
                                             </TableCell>
                                             <TableCell>
                                                 <div className="flex flex-col">
-                                                    <span className="font-medium text-foreground">{product.price.toLocaleString()} ฿</span>
+                                                    <span className="font-medium text-foreground">฿ {product.price.toLocaleString()}</span>
                                                 </div>
                                             </TableCell>
                                             <TableCell className="text-sm text-muted-foreground">
